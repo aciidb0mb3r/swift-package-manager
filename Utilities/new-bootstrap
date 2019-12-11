@@ -486,6 +486,8 @@ def get_swiftpm_flags(args):
         build_flags.extend([
             "-Xswiftc", "-F" + args.llbuild_build_dir,
             "-Xlinker", "-F" + args.llbuild_build_dir,
+            "-Xlinker", "-rpath",
+            "-Xlinker", "@executable_path/../../../../../SharedFrameworks",
         ])
 
     return build_flags
